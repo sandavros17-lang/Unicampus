@@ -22,6 +22,7 @@
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
+    "allowImportingTsExtensions": true,
     "exactOptionalPropertyTypes": true,
 
     // Style Options
