@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { estudiantesData } from '../data/estudiante.data';
-import { Estudiante } from '../interfaces/estudiante.interface';
+import { Estudiante } from '../interface/estudiante.interface';
 
 export const getEstudiantes = (req: Request, res: Response) => {
   res.json(estudiantesData);
