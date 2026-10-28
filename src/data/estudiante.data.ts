@@ -1,4 +1,4 @@
-import { Estudiante } from '../interface/estudiante.interface';
+import { Estudiante } from '../interface/estudiante.interfaces';
 
 export const estudiantesData: Estudiante[] = [
   {
