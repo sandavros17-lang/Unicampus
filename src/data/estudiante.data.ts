@@ -65,4 +65,3 @@ export const estudiantesData: Estudiante[] = [
     promedioAcumulado: 3.8
   }
 ];
-];
