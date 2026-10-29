@@ -1,5 +1,5 @@
 
-import { profesor } from "../interface/profesores.interface.js";
+import { profesor } from "../interface/profesores.interface";
 
 export let listaProfesores: profesor[] = [
 {    

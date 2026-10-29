@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
-import  {listaProfesores } from "../data/profesores.data.js";
-import { type profesor } from "../interface/profesores.interface.js";
-import { ValidarDatosProfesores } from "../middelwares/profesores.middleware.js";
+import  {listaProfesores } from "../data/profesores.data";
+import { type profesor } from "../interface/profesores.interface";
+import { ValidarDatosProfesores } from "../middelwares/profesores.middleware";
 
 
 //listar todos los profesores

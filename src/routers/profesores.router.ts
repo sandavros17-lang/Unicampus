@@ -5,14 +5,15 @@ import {
     crearProfesor,
     actualizarProfesor,
     elimiarProfesorHard,
-} from "../controllers/profesores.controller.js";
-import { ValidarDatosProfesores } from "../middelwares/profesores.middleware.js";
+} from "../controllers/profesores.controller";
+import { ValidarDatosProfesores } from "../middelwares/profesores.middleware";
+
 const router = Router();
 
-router.get('/api/profesores',traerTodosProfesores);
-router.get('/api/profesores/:id',traerUnProfesor);
-router.post('/api/profesores', ValidarDatosProfesores, crearProfesor);
-router.put('/api/profesores/:id', ValidarDatosProfesores, actualizarProfesor);
-router.delete('/api/profesores/:id', elimiarProfesorHard);
+router.get('/', traerTodosProfesores);
+router.get('/:id', traerUnProfesor);
+router.post('/', ValidarDatosProfesores, crearProfesor);
+router.put('/:id', ValidarDatosProfesores, actualizarProfesor);
+router.delete('/:id', elimiarProfesorHard);
 
 export default router;

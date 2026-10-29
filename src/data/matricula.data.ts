@@ -1,6 +1,6 @@
 // base de datos - matricula (dia 13  trabajo grupo)
 
-import { Matricula } from '../interfaces/matricula.interface';
+import { Matricula } from '../interface/matricula.interface';
 
 export const matriculasData: Matricula[] = [
 
@@ -33,7 +33,7 @@ export const matriculasData: Matricula[] = [
         cursoId: 101,
         semestre: "2026-2",
         notaFinal: 3.8
-    }
+    },
 
     {
         id: 5,
@@ -41,7 +41,7 @@ export const matriculasData: Matricula[] = [
         cursoId: 103,
         semestre: "2026-2",
         notaFinal: 4.0
-    }
+    },
 
     {
         id: 6,
@@ -49,7 +49,7 @@ export const matriculasData: Matricula[] = [
         cursoId: 101,
         semestre: "2026-2",
         notaFinal: 3.8
-    }
+    },
 
     {
         id: 7,
@@ -57,7 +57,7 @@ export const matriculasData: Matricula[] = [
         cursoId: 101,
         semestre: "2026-2",
         notaFinal: 4.4
-    }
+    },
 
     {
         id: 8,
@@ -65,7 +65,7 @@ export const matriculasData: Matricula[] = [
         cursoId: 102,
         semestre: "2026-2",
         notaFinal: 2.1
-    }
+    },
 
     {
         id: 9,
@@ -73,7 +73,7 @@ export const matriculasData: Matricula[] = [
         cursoId: 101,
         semestre: "2026-2",
         notaFinal: 4.8
-    }
+    },
 
 ];
 

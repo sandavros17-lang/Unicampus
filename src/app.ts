@@ -1,14 +1,21 @@
 import express from 'express';
-import estudianteRouter from './routers/estudiante.router';
+import estudiantesRouter from './routers/estudiante.router';
+import cursosRouter from './routers/curso.router';
+import matriculasRouter from './routers/matricula.routers';
+import profesoresRouter from './routers/profesores.router';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.use(express.json());
 
+// Montar las rutas modularizadas
+app.use('/api/estudiantes', estudiantesRouter);
+app.use('/api/cursos', cursosRouter);
+app.use('/api/matriculas', matriculasRouter);
+app.use('/api/profesores', profesoresRouter);
 
-app.use('/api/estudiantes', estudianteRouter);
-
+// Activar el servidor
 app.listen(PORT, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

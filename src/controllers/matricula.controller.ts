@@ -2,7 +2,7 @@
 
 import { Request, Response } from 'express';
 import { matriculasData, nextMatriculaId } from '../data/matricula.data';
-import { Matricula } from '../interfaces/matricula.interface';
+import { Matricula } from '../interface/matricula.interface';
 
 let currentId = nextMatriculaId;
 

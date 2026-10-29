@@ -8,7 +8,7 @@ import {
     actualizarMatricula,
     eliminarMatricula
 } from '../controllers/matricula.controller';
-import { validarMatricula } from '../middlewares/matricula.middleware';
+import { validarMatricula } from '../middelwares/matricula.middleware';
 
 const router = Router();
 
