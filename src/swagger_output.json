@@ -15,22 +15,47 @@
       "type": "apiKey",
       "in": "header",
       "name": "x-api-key",
-      "description": "Introduce la clave API proporcionada para acceder a los endpoints protegidos."
+
+    
+
+      "description": "Introduce tu API Key para acceder a los endpoints (Ej: funval-2026-10)"
+
     }
   },
   "paths": {
     "/api/estudiantes/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Estudiantes"
+        ],
+        "description": "Endpoint para listar todos los estudiantes",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Lista de estudiantes obtenida exitosamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Estudiantes"
+        ],
+        "description": "Endpoint para crear un nuevo estudiante",
         "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -55,41 +80,63 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Estudiante creado exitosamente"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     },
     "/api/estudiantes/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Estudiantes"
+        ],
+        "description": "Endpoint para obtener un estudiante por su ID",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Estudiante encontrado exitosamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Estudiante no encontrado."
           }
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Estudiantes"
+        ],
+        "description": "Endpoint para actualizar un estudiante existente",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
             "type": "string"
           },
           {
@@ -116,38 +163,53 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Estudiante actualizado exitosamente"
           },
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
-            "description": "Not Found"
+            "description": "Estudiante no encontrado."
           }
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Estudiantes"
+        ],
+        "description": "Endpoint para eliminar un estudiante",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Estudiante eliminado correctamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Estudiante no encontrado."
           }
         }
       }
     },
     "/api/cursos/": {
       "get": {
+
         "tags": [
           "Cursos"
         ],
@@ -156,6 +218,22 @@
         "responses": {
           "200": {
             "description": "Lista de cursos obtenida exitosamente"
+
+        "description": "",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+
           }
         }
       },
@@ -166,6 +244,11 @@
         "summary": "Crear un curso",
         "description": "Registra un nuevo curso.",
         "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -199,7 +282,12 @@
             "description": "Curso creado exitosamente"
           },
           "400": {
-            "description": "Datos inválidos"
+
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+
           }
         }
       }
@@ -216,8 +304,17 @@
             "name": "id",
             "in": "path",
             "required": true,
+
             "type": "integer",
             "description": "ID del curso"
+
+            "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+
           }
         ],
         "responses": {
@@ -226,6 +323,9 @@
           },
           "400": {
             "description": "ID inválido"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Curso no encontrado"
@@ -245,6 +345,11 @@
             "required": true,
             "type": "integer",
             "description": "ID del curso"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           },
           {
             "name": "body",
@@ -281,6 +386,9 @@
           "400": {
             "description": "Datos inválidos"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Curso no encontrado"
           }
@@ -299,13 +407,25 @@
             "name": "id",
             "in": "path",
             "required": true,
+
             "type": "integer",
             "description": "ID del curso"
+
+            "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+
           }
         ],
         "responses": {
           "200": {
             "description": "Curso desactivado correctamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Curso activo no encontrado"
@@ -325,13 +445,25 @@
             "name": "id",
             "in": "path",
             "required": true,
+
             "type": "integer",
             "description": "ID del curso"
+
+            "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+
           }
         ],
         "responses": {
           "200": {
             "description": "Curso eliminado definitivamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Curso no encontrado"
@@ -342,15 +474,30 @@
     "/api/matriculas/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
       "post": {
         "description": "",
         "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -379,6 +526,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -392,11 +542,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -410,6 +568,11 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
             "type": "string"
           },
           {
@@ -441,6 +604,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           }
@@ -454,11 +620,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -469,15 +643,30 @@
     "/api/profesores/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
       "post": {
         "description": "",
         "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -506,6 +695,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -519,11 +711,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -537,6 +737,11 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
             "type": "string"
           },
           {
@@ -568,6 +773,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           }
@@ -581,11 +789,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -595,86 +811,150 @@
     },
     "/api/asistencias/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Asistencias"
+        ],
+        "description": "Endpoint para listar todos los registros de asistencia",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Lista de asistencias obtenida exitosamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Asistencias"
+        ],
+        "description": "Endpoint para crear un nuevo registro de asistencia",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Asistencia creada exitosamente"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     },
     "/api/asistencias/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Asistencias"
+        ],
+        "description": "Endpoint para obtener un registro de asistencia por su ID",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Asistencia encontrada exitosamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Asistencia no encontrada"
           }
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Asistencias"
+        ],
+        "description": "Endpoint para actualizar un registro de asistencia existente",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Asistencia actualizada exitosamente"
           },
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
-            "description": "Not Found"
+            "description": "Asistencia no encontrada"
           }
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Asistencias"
+        ],
+        "description": "Endpoint para eliminar un registro de asistencia",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Asistencia eliminada exitosamente"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Asistencia no encontrada"
           }
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
 }

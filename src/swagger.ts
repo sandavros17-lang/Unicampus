@@ -19,6 +19,22 @@ const doc = {
         "Introduce la clave API proporcionada para acceder a los endpoints protegidos.",
     },
   },
+
+
+  host: 'localhost:3000',
+  schemes: ['http'],
+  
+  // 🔑 Configuración de seguridad para el API Key en los headers
+  securityDefinitions: {
+    ApiKeyAuth: {
+      type: 'apiKey',
+      in: 'header',
+      name: 'x-api-key',
+      description: 'Introduce tu API Key para acceder a los endpoints (Ej: funval-2026-10)',
+    },
+  },
+  security: [{ ApiKeyAuth: [] }],
+
 };
 
 const outputFile = "./src/swagger_output.json";
