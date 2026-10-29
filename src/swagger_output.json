@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "API Taller Modular",
-    "description": "Documentación automática de la API",
+    "title": "API Unicampus",
+    "description": "Documentación de la API REST de Unicampus: Cursos, Estudiantes, Asistencias, Matrículas y Profesores.",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -10,6 +10,14 @@
   "schemes": [
     "http"
   ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-api-key",
+      "description": "Introduce la clave API proporcionada para acceder a los endpoints protegidos."
+    }
+  },
   "paths": {
     "/api/estudiantes/": {
       "get": {
@@ -140,33 +148,47 @@
     },
     "/api/cursos/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Cursos"
+        ],
+        "summary": "Listar cursos activos",
+        "description": "Obtiene todos los cursos que están activos.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Lista de cursos obtenida exitosamente"
           }
         }
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Cursos"
+        ],
+        "summary": "Crear un curso",
+        "description": "Registra un nuevo curso.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "description": "Datos del nuevo curso",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "codigoCurso": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "INF101"
                 },
                 "nombreMateria": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Programación I"
                 },
                 "creditos": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 5
                 },
                 "profesorId": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 1
                 }
               }
             }
@@ -174,63 +196,79 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Curso creado exitosamente"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Datos inválidos"
           }
         }
       }
     },
     "/api/cursos/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Cursos"
+        ],
+        "summary": "Buscar curso por ID",
+        "description": "Busca un curso activo utilizando su ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "description": "ID del curso"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Curso encontrado"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "ID inválido"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Curso no encontrado"
           }
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Cursos"
+        ],
+        "summary": "Actualizar un curso",
+        "description": "Actualiza los datos de un curso activo.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "description": "ID del curso"
           },
           {
             "name": "body",
             "in": "body",
+            "description": "Datos actualizados del curso",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "codigoCurso": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "INF102"
                 },
                 "nombreMateria": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Programación II"
                 },
                 "creditos": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 5
                 },
                 "profesorId": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 2
                 }
               }
             }
@@ -238,55 +276,65 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Curso actualizado exitosamente"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Datos inválidos"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Curso no encontrado"
           }
         }
       }
     },
     "/api/cursos/soft/{id}": {
       "delete": {
-        "description": "",
+        "tags": [
+          "Cursos"
+        ],
+        "summary": "Desactivar un curso",
+        "description": "Desactiva un curso sin eliminarlo definitivamente.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "description": "ID del curso"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Curso desactivado correctamente"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Curso activo no encontrado"
           }
         }
       }
     },
     "/api/cursos/hard/{id}": {
       "delete": {
-        "description": "",
+        "tags": [
+          "Cursos"
+        ],
+        "summary": "Eliminar curso definitivamente",
+        "description": "Elimina permanentemente un curso.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "description": "ID del curso"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Curso eliminado definitivamente"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Curso no encontrado"
           }
         }
       }
