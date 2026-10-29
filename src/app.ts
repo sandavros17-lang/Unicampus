@@ -44,7 +44,6 @@ app.use('/api/cursos', cursosRouter);
 app.use('/api/matriculas', matriculasRouter);
 app.use('/api/profesores', profesoresRouter);
 app.use('/api/asistencias', asistenciaRouter);
-
 // Activar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);

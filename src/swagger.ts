@@ -1,10 +1,26 @@
-import swaggerAutogen = require('swagger-autogen');
+
+import swaggerAutogen = require("swagger-autogen");
 
 const doc = {
   info: {
-    title: 'API Taller Modular',
-    description: 'Documentación automática de la API',
+    title: "API Unicampus",
+    description:
+      "Documentación de la API REST de Unicampus: Cursos, Estudiantes, Asistencias, Matrículas y Profesores.",
   },
+  host: "localhost:3000",
+  schemes: ["http"],
+
+  securityDefinitions: {
+    ApiKeyAuth: {
+      type: "apiKey",
+      in: "header",
+      name: "x-api-key",
+      description:
+        "Introduce la clave API proporcionada para acceder a los endpoints protegidos.",
+    },
+  },
+
+
   host: 'localhost:3000',
   schemes: ['http'],
   
@@ -18,11 +34,12 @@ const doc = {
     },
   },
   security: [{ ApiKeyAuth: [] }],
+
 };
 
-const outputFile = './swagger_output.json';
-const endpointsFiles = ['./src/app.ts'];
+const outputFile = "./src/swagger_output.json";
+const routes = ["./src/app.ts"];
 
-swaggerAutogen()(outputFile, endpointsFiles, doc).then(() => {
-  console.log('Documentación de Swagger generada con éxito');
+swaggerAutogen()(outputFile, routes, doc).then(() => {
+  console.log("Documentación de Swagger generada exitosamente");
 });
