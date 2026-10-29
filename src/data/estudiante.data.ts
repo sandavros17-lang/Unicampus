@@ -1,4 +1,4 @@
-import { Estudiante } from '../interface/estudiante.interface';
+import { Estudiante } from '../interface/estudiantes.interfaces';
 
 export const estudiantesData: Estudiante[] = [
   {
@@ -7,7 +7,7 @@ export const estudiantesData: Estudiante[] = [
     nombres: 'Santiago Rosero',
     carrera: 'Ingeniería de Sistemas',
     promedioAcumulado: 4.5
-  }
+  },
   {
     id: 2,
     codigoEstudiante: 'EST-2026-02',
