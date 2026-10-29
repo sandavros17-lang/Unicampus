@@ -21,7 +21,10 @@
   },
   "dependencies": {
     "express": "^5.3.0",
+<<<<<<< HEAD
     "swagger-autogen": "^2.23.7",
+=======
+>>>>>>> c51935013d53fd46f554ef2cad90c5592eae7017
     "swagger-ui-express": "^5.0.1"
   }
 }
