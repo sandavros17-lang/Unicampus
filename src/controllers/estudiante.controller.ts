@@ -3,10 +3,18 @@ import { estudiantesData } from '../data/estudiante.data';
 import { Estudiante } from '../interface/estudiantes.interfaces';
 
 export const getEstudiantes = (req: Request, res: Response) => {
+  // #swagger.tags = ['Estudiantes']
+  // #swagger.description = 'Endpoint para listar todos los estudiantes'
+  // #swagger.responses[200] = { description: 'Lista de estudiantes obtenida exitosamente' }
   res.json(estudiantesData);
 };
 
 export const getEstudianteById = (req: Request, res: Response) => {
+  // #swagger.tags = ['Estudiantes']
+  // #swagger.description = 'Endpoint para obtener un estudiante por su ID'
+  // #swagger.responses[200] = { description: 'Estudiante encontrado exitosamente' }
+  // #swagger.responses[404] = { description: 'Estudiante no encontrado.' }
+
   const id = Number(req.params.id);
   const estudiante = estudiantesData.find((e) => e.id === id);
 
@@ -19,6 +27,10 @@ export const getEstudianteById = (req: Request, res: Response) => {
 };
 
 export const createEstudiante = (req: Request, res: Response) => {
+  // #swagger.tags = ['Estudiantes']
+  // #swagger.description = 'Endpoint para crear un nuevo estudiante'
+  // #swagger.responses[201] = { description: 'Estudiante creado exitosamente' }
+
   const nuevoEstudiante: Estudiante = {
     id: estudiantesData.length + 1,
     ...req.body
@@ -29,6 +41,11 @@ export const createEstudiante = (req: Request, res: Response) => {
 };
 
 export const updateEstudiante = (req: Request, res: Response) => {
+  // #swagger.tags = ['Estudiantes']
+  // #swagger.description = 'Endpoint para actualizar un estudiante existente'
+  // #swagger.responses[200] = { description: 'Estudiante actualizado exitosamente' }
+  // #swagger.responses[404] = { description: 'Estudiante no encontrado.' }
+
   const id = Number(req.params.id);
   const index = estudiantesData.findIndex((e) => e.id === id);
 
@@ -42,6 +59,11 @@ export const updateEstudiante = (req: Request, res: Response) => {
 };
 
 export const deleteEstudiante = (req: Request, res: Response) => {
+  // #swagger.tags = ['Estudiantes']
+  // #swagger.description = 'Endpoint para eliminar un estudiante'
+  // #swagger.responses[200] = { description: 'Estudiante eliminado correctamente' }
+  // #swagger.responses[404] = { description: 'Estudiante no encontrado.' }
+
   const id = Number(req.params.id);
   const index = estudiantesData.findIndex((e) => e.id === id);
 
