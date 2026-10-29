@@ -1,4 +1,4 @@
-import { Asistencia } from '../interface/asistencias.interface';
+import { Asistencia } from '../interface/asistencia.interface';
 
 export const asistencia: Asistencia[] = [
   { id: 1, inscripcionId: 1, fecha: '2026-10-26', presente: true },
