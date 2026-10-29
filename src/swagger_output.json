@@ -420,15 +420,26 @@
     },
     "/api/profesores/": {
       "get": {
-        "description": "",
+        "tags": [
+          "Profesores"
+        ],
+        "description": "Endpoint para obtener todos los profesores registrados",
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       },
       "post": {
-        "description": "",
+        "tags": [
+          "Profesores"
+        ],
+        "description": "Endpoint para crear un nuevo profesor",
         "parameters": [
           {
             "name": "body",
@@ -453,24 +464,40 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "201": {
             "description": "Created"
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/api/profesores/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Profesores"
+        ],
+        "description": "Endpoint para obtener un profesor por su ID",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID del profesor",
+            "example": "12438"
           }
         ],
         "responses": {
@@ -480,10 +507,18 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Profesores"
+        ],
+        "description": "Endpoint para actualizar un profesor por su ID",
         "parameters": [
           {
             "name": "id",
@@ -523,10 +558,18 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Profesores"
+        ],
+        "description": "Endpoint para eliminar un profesor por su ID",
         "parameters": [
           {
             "name": "id",
@@ -542,7 +585,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
       }
     },
     "/api/asistencias/": {

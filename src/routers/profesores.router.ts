@@ -4,7 +4,7 @@ import {
     traerUnProfesor,
     crearProfesor,
     actualizarProfesor,
-    elimiarProfesorHard,
+    eliminarProfesorHard,
 } from "../controllers/profesores.controller";
 import { ValidarDatosProfesores } from "../middelwares/profesores.middleware";
 
@@ -14,6 +14,6 @@ router.get('/', traerTodosProfesores);
 router.get('/:id', traerUnProfesor);
 router.post('/', ValidarDatosProfesores, crearProfesor);
 router.put('/:id', ValidarDatosProfesores, actualizarProfesor);
-router.delete('/:id', elimiarProfesorHard);
+router.delete('/:id', eliminarProfesorHard);
 
 export default router;
