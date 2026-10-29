@@ -620,6 +620,7 @@
         "tags": [
           "Profesores"
         ],
+        "summary": "Traer todos los profesores",
         "description": "Endpoint para obtener todos los profesores registrados",
         "parameters": [
           {
@@ -646,7 +647,8 @@
         "tags": [
           "Profesores"
         ],
-        "description": "Endpoint para actualizar un profesor por su ID",
+        "summary": "Crear un profesor",
+        "description": "Endpoint para crear un profesor por su ID",
         "parameters": [
           {
             "name": "x-api-key",
@@ -712,6 +714,7 @@
         "tags": [
           "Profesores"
         ],
+        "summary": "Traer un profesor",
         "description": "Endpoint para obtener un profesor por su ID",
         "parameters": [
           {
@@ -749,6 +752,7 @@
         "tags": [
           "Profesores"
         ],
+        "summary": "Actualizar un profesor",
         "description": "Endpoint para actualizar un profesor por su ID",
         "parameters": [
           {
@@ -808,6 +812,7 @@
         "tags": [
           "Profesores"
         ],
+        "summary": "eliminar un profesor",
         "description": "Endpoint para eliminar un profesor por su ID",
         "parameters": [
           {

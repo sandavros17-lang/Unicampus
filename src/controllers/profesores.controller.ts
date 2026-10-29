@@ -6,6 +6,7 @@ import { type profesor } from "../interface/profesores.interface";
 export function traerTodosProfesores(req: Request, res: Response) {
     /* 
       #swagger.tags = ['Profesores']
+      #swagger.summary = 'Traer todos los profesores'
       #swagger.description = 'Endpoint para obtener todos los profesores registrados'
       #swagger.security = [{
         "ApiKeyAuth": []
@@ -24,6 +25,7 @@ export function traerTodosProfesores(req: Request, res: Response) {
 export function traerUnProfesor(req: Request, res: Response) {
     /* 
       #swagger.tags = ['Profesores']
+      #swagger.summary = 'Traer un profesor'
       #swagger.description = 'Endpoint para obtener un profesor por su ID'
       #swagger.parameters['id'] = {
       description: 'ID del profesor',
@@ -54,7 +56,8 @@ export function traerUnProfesor(req: Request, res: Response) {
 export function crearProfesor(req: Request, res: Response) {
     /* 
       #swagger.tags = ['Profesores']
-      #swagger.description = 'Endpoint para actualizar un profesor por su ID'
+      #swagger.summary = 'Crear un profesor'
+      #swagger.description = 'Endpoint para crear un profesor por su ID'
       #swagger.parameters['id'] = {
         description: 'ID del profesor',
         type: 'number',
@@ -96,6 +99,7 @@ export function crearProfesor(req: Request, res: Response) {
 export function actualizarProfesor(req: Request, res: Response) {
     /* 
       #swagger.tags = ['Profesores']
+      #swagger.summary = 'Actualizar un profesor'
       #swagger.description = 'Endpoint para actualizar un profesor por su ID'
       #swagger.security = [{
         "ApiKeyAuth": []
@@ -125,6 +129,7 @@ export function actualizarProfesor(req: Request, res: Response) {
 export function eliminarProfesorHard(req: Request, res: Response) {
     /* 
       #swagger.tags = ['Profesores']
+      #swagger.summary = 'eliminar un profesor'
       #swagger.description = 'Endpoint para eliminar un profesor por su ID'
       #swagger.security = [{
         "ApiKeyAuth": []
